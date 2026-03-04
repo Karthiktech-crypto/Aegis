@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AEGIS | Intelligence That Protects</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Custom Animations */
+        @keyframes ecg { 
+            from { stroke-dashoffset: 1000; } 
+            to { stroke-dashoffset: 0; } 
+        }
+        .animate-ecg {
+            stroke-dasharray: 1000;
+            animation: ecg 3s linear infinite;
+        }
+        
+        /* Fade In Logic */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fff; }
+        ::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-white text-slate-900 selection:bg-blue-100 overflow-x-hidden antialiased text-left">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-[100] bg-white/80 backdrop-blur-xl border-b border-gray-100 h-16">
+        <div class="max-w-[1400px] mx-auto px-6 h-full flex items-center justify-between">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <!-- Aegis Logo -->
+                <svg viewBox="0 0 100 100" class="w-8 h-8 text-black">
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="4" />
+                    <path d="M50 18 L28 78 L42 78 L50 56 L58 78 L72 78 Z" fill="currentColor" />
+                    <path d="M35 75 L55 35" stroke="white" stroke-width="5" stroke-linecap="round" />
+                </svg>
+                <span class="text-[22px] font-bold tracking-tighter leading-none uppercase">AEGIS</span>
+            </div>
+            
+            <div class="hidden lg:flex items-center gap-10">
+                <a href="#about" class="text-[12px] font-bold text-slate-500 hover:text-black transition-all uppercase tracking-widest">About Us</a>
+                <a href="#solution" class="text-[12px] font-bold text-slate-500 hover:text-black transition-all uppercase tracking-widest">Solution</a>
+                <a href="#features" class="text-[12px] font-bold text-slate-500 hover:text-black transition-all uppercase tracking-widest">Features</a>
+                <a href="#comparison" class="text-[12px] font-bold text-slate-500 hover:text-black transition-all uppercase tracking-widest">Comparison</a>
+                <a href="#plan" class="text-[12px] font-bold text-slate-500 hover:text-black transition-all uppercase tracking-widest">Plan</a>
+                <a href="#team" class="text-[12px] font-bold text-slate-500 hover:text-black transition-all uppercase tracking-widest">Team</a>
+            </div>
+            
+            <button class="bg-blue-600 text-white px-6 py-2 rounded-full text-[11px] font-bold hover:bg-blue-700 active:scale-95 transition-all shadow-xl shadow-blue-500/20 uppercase tracking-widest">
+                Notify Me
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center px-6 relative overflow-hidden bg-white">
+            <div class="absolute inset-0 bg-gradient-to-b from-blue-50/30 to-white -z-10"></div>
+            
+            <div class="fade-in-section" style="transition-delay: 0ms;">
+                <span class="px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-[11px] font-bold tracking-widest uppercase border border-blue-100 mb-8 inline-block">
+                    Intelligence That Protects
+                </span>
+                <h1 class="text-[44px] md:text-[96px] font-black tracking-tight leading-[1.1] text-black mb-10 uppercase text-left md:text-center">
+                    Intelligent Health <br /><span class="text-blue-600">On Your Wrist</span>
+                </h1>
+                <p class="max-w-2xl mx-auto text-lg md:text-2xl text-slate-500 font-medium leading-relaxed mb-12 text-left md:text-center">
+                    A smart wearable watch designed to monitor vital health signals and activate emergency alerts when critical conditions are detected
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})" class="bg-black text-white px-10 py-4 rounded-full font-bold text-sm hover:bg-slate-800 transition-all shadow-xl shadow-slate-200 active:scale-95 uppercase">
+                        Explore the Platform
+                    </button>
+                    <button onclick="document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'})" class="bg-white text-black px-10 py-4 rounded-full font-bold text-sm border border-slate-200 hover:bg-slate-50 transition-all active:scale-95 uppercase">
+                        Learn How It Works
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mt-16 fade-in-section" style="transition-delay: 400ms;">
+                <!-- Watch Mockup -->
+                <div class="relative group mx-auto text-left">
+                    <div class="absolute inset-0 bg-blue-500/10 blur-[100px] rounded-full scale-150 animate-pulse"></div>
+                    <div class="relative w-[280px] h-[340px] bg-gradient-to-br from-[#2c2c2e] to-[#000] rounded-[64px] p-2 shadow-2xl z-10 border border-white/10">
+                        <div class="h-full w-full rounded-[54px] bg-black overflow-hidden flex flex-col items-center justify-center p-6 text-center text-white">
+                            <div class="absolute top-8 w-full flex justify-center opacity-40">
+                                <span class="text-[7px] font-bold tracking-[0.3em] uppercase">AEGIS OS • V1</span>
+                            </div>
+                            <svg class="w-full h-12 stroke-blue-500 fill-none mb-6 animate-ecg" viewBox="0 0 100 40">
+                                <path d="M0 20 L20 20 L24 5 L28 35 L32 20 L55 20 L60 0 L65 40 L70 20 L100 20" stroke-width="3" />
+                            </svg>
+                            <div class="text-6xl font-light tracking-tighter">72</div>
+                            <div class="text-[10px] text-blue-400 font-bold uppercase mt-2 tracking-widest">BPM • NORMAL</div>
+                            <div class="absolute bottom-10 px-4 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-full">
+                                <span class="text-[7px] font-black text-blue-400 uppercase tracking-widest">GUARDIAN ACTIVE</span>
+                            </div>
+                        </div>
+                        <div class="absolute right-[-4px] top-24 w-2 h-14 bg-[#2c2c2e] rounded-r-lg border-y border-r border-white/5"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us -->
+        <section id="about" class="py-32 bg-white px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-20 items-center">
+                    <div class="fade-in-section" style="transition-delay: 0ms;">
+                        <h3 class="text-blue-600 font-bold uppercase tracking-widest text-[11px] mb-6 font-black">About Us</h3>
+                        <h2 class="text-4xl md:text-7xl font-bold tracking-tight text-black leading-none mb-10 uppercase">
+                            No lost lives due to <br/><span class="text-slate-300">delayed response</span>
+                        </h2>
+                        <p class="text-xl text-slate-500 font-medium leading-relaxed mb-8">
+                            AEGIS was founded on a simple belief—millions live without continuous medical supervision Sudden falls cardiac irregularities and oxygen drops often escalate within minutes
+                        </p>
+                        <p class="text-xl text-black font-bold mb-8 uppercase">
+                            Traditional wearables track data <br/>AEGIS activates action
+                        </p>
+                    </div>
+                    
+                    <div class="fade-in-section" style="transition-delay: 300ms;">
+                        <div class="bg-slate-50 p-12 rounded-[56px] border border-slate-100 relative">
+                            <div class="text-blue-600 mb-8">
+                                <!-- Target Icon -->
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                            </div>
+                            <h4 class="text-3xl font-bold mb-6 uppercase">Our Vision</h4>
+                            <p class="text-lg text-slate-600 leading-relaxed font-medium mb-10">
+                                Our vision is to create intelligent wearable systems that continuously monitor health signals and enable faster emergency detection and response We believe technology should not just inform — it should act
+                            </p>
+                            <div class="grid grid-cols-2 gap-8 border-t border-slate-200 pt-10">
+                                <div>
+                                    <div class="text-4xl font-black text-black">0.1s</div>
+                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Classification Speed</div>
+                                </div>
+                                <div>
+                                    <div class="text-4xl font-black text-black">24/7</div>
+                                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Sensing Shield</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution -->
+        <section id="solution" class="py-32 bg-slate-950 text-white overflow-hidden relative scroll-mt-16">
+            <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-600/10 blur-[150px] -z-0"></div>
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <div class="max-w-4xl mb-24 fade-in-section">
+                    <h3 class="text-blue-400 font-bold uppercase tracking-widest text-[11px] mb-8 font-black">The Solution</h3>
+                    <h2 class="text-5xl md:text-8xl font-bold tracking-tighter mb-10 leading-none uppercase">
+                        Autonomous Engine
+                    </h2>
+                    <p class="text-2xl text-slate-400 leading-relaxed font-medium">
+                        AEGIS provides a safety net by analyzing vital signals locally Split-second detection means immediate help for those who need it most
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Item 1 -->
+                    <div class="p-10 rounded-[48px] bg-white/5 border border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all duration-500 h-full flex flex-col items-start fade-in-section" style="transition-delay: 0ms;">
+                        <div class="mb-8 text-blue-400">
+                            <!-- Activity Icon -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 uppercase">Vital Logic</h4>
+                        <p class="text-slate-400 leading-relaxed text-sm">Heart rate ECG and respiratory rate tracking</p>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="p-10 rounded-[48px] bg-white/5 border border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all duration-500 h-full flex flex-col items-start fade-in-section" style="transition-delay: 150ms;">
+                        <div class="mb-8 text-blue-400">
+                            <!-- Zap Icon -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 uppercase">Oxygen Sync</h4>
+                        <p class="text-slate-400 leading-relaxed text-sm">Blood oxygen level monitoring and analysis</p>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="p-10 rounded-[48px] bg-white/5 border border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all duration-500 h-full flex flex-col items-start fade-in-section" style="transition-delay: 300ms;">
+                        <div class="mb-8 text-blue-400">
+                            <!-- Target Icon -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 uppercase">Impact Logic</h4>
+                        <p class="text-slate-400 leading-relaxed text-sm">High-precision motion and fall detection</p>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="p-10 rounded-[48px] bg-white/5 border border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all duration-500 h-full flex flex-col items-start fade-in-section" style="transition-delay: 450ms;">
+                        <div class="mb-8 text-blue-400">
+                            <!-- Shield Icon -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 uppercase">Guardian Brain</h4>
+                        <p class="text-slate-400 leading-relaxed text-sm">Identifies anomalies locally via integrated software logic</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section id="features" class="py-32 bg-white px-6 scroll-mt-16">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-24 fade-in-section">
+                    <h3 class="text-blue-600 font-bold uppercase tracking-widest text-[11px] mb-6 font-black uppercase">Autonomous Intel</h3>
+                    <h2 class="text-4xl md:text-7xl font-bold tracking-tight text-black mb-8 leading-none uppercase">The 5-Layer Shield</h2>
+                    <p class="text-xl text-slate-500 font-medium">Multi-tier response logic activated the moment a risk is confirmed</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Grid Items directly hardcoded to match React map -->
+                    <div class="p-12 rounded-[56px] bg-slate-50 border border-slate-100 hover:shadow-2xl transition-all duration-700 h-full fade-in-section" style="transition-delay: 0ms;">
+                        <span class="text-[10px] font-black text-blue-600 uppercase tracking-widest block mb-4">01 — Layer 1</span>
+                        <h4 class="text-2xl font-bold mb-4 text-slate-900 uppercase">Local SOS Alert</h4>
+                        <p class="text-slate-500 leading-relaxed font-medium">Visual and high-decibel audible distress on-device</p>
+                    </div>
+                    <div class="p-12 rounded-[56px] bg-slate-50 border border-slate-100 hover:shadow-2xl transition-all duration-700 h-full fade-in-section" style="transition-delay: 100ms;">
+                        <span class="text-[10px] font-black text-blue-600 uppercase tracking-widest block mb-4">02 — Layer 2</span>
+                        <h4 class="text-2xl font-bold mb-4 text-slate-900 uppercase">Family Sync</h4>
+                        <p class="text-slate-500 leading-relaxed font-medium">Immediate dashboard notification with live location mapping</p>
+                    </div>
+                    <div class="p-12 rounded-[56px] bg-slate-50 border border-slate-100 hover:shadow-2xl transition-all duration-700 h-full fade-in-section" style="transition-delay: 200ms;">
+                        <span class="text-[10px] font-black text-blue-600 uppercase tracking-widest block mb-4">03 — Layer 3</span>
+                        <h4 class="text-2xl font-bold mb-4 text-slate-900 uppercase">Medical Relay</h4>
+                        <p class="text-slate-500 leading-relaxed font-medium">Direct vital relay to clinical hospital dashboards</p>
+                    </div>
+                    <div class="p-12 rounded-[56px] bg-slate-50 border border-slate-100 hover:shadow-2xl transition-all duration-700 h-full fade-in-section" style="transition-delay: 300ms;">
+                        <span class="text-[10px] font-black text-blue-600 uppercase tracking-widest block mb-4">04 — Layer 4</span>
+                        <h4 class="text-2xl font-bold mb-4 text-slate-900 uppercase">Ambulance Link</h4>
+                        <p class="text-slate-500 leading-relaxed font-medium">Autonomous dispatch protocols for rapid response</p>
+                    </div>
+                    <div class="p-12 rounded-[56px] bg-slate-50 border border-slate-100 hover:shadow-2xl transition-all duration-700 h-full fade-in-section" style="transition-delay: 400ms;">
+                        <span class="text-[10px] font-black text-blue-600 uppercase tracking-widest block mb-4">05 — Layer 5</span>
+                        <h4 class="text-2xl font-bold mb-4 text-slate-900 uppercase">Mesh Network</h4>
+                        <p class="text-slate-500 leading-relaxed font-medium">Localized aid grid notifications to nearby AEGIS users</p>
+                    </div>
+                    <div class="p-12 rounded-[56px] bg-slate-50 border border-slate-100 hover:shadow-2xl transition-all duration-700 h-full fade-in-section" style="transition-delay: 500ms;">
+                        <span class="text-[10px] font-black text-blue-600 uppercase tracking-widest block mb-4">06 — Platform</span>
+                        <h4 class="text-2xl font-bold mb-4 text-slate-900 uppercase">Medication Hub</h4>
+                        <p class="text-slate-500 leading-relaxed font-medium">Automated dose tracking and refill depletion warnings</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section id="how-it-works" class="py-32 bg-[#f5f5f7] px-6 scroll-mt-16">
+            <div class="max-w-5xl mx-auto">
+                <div class="fade-in-section">
+                    <h3 class="text-blue-600 font-bold uppercase tracking-widest text-[11px] mb-6 font-black">Operation Flow</h3>
+                    <h2 class="text-4xl md:text-6xl font-bold text-black mb-20 tracking-tight leading-none uppercase">Logic Architecture</h2>
+                </div>
+
+                <div class="grid gap-12">
+                    <!-- Stage 1 -->
+                    <div class="flex flex-col md:flex-row gap-12 p-8 md:p-14 bg-white rounded-[64px] border border-slate-100 items-center group hover:border-blue-600 transition-all duration-700 shadow-sm hover:shadow-2xl fade-in-section" style="transition-delay: 0ms;">
+                        <div class="w-full md:w-56 h-56 bg-[#f5f5f7] rounded-[48px] overflow-hidden flex-shrink-0 transition-transform group-hover:scale-105 duration-700 shadow-inner flex items-center justify-center">
+                            <div class="w-full h-full flex items-center justify-center relative overflow-visible">
+                                <div class="absolute inset-0 bg-blue-500/10 blur-3xl rounded-full"></div>
+                                <svg viewBox="0 0 120 120" class="w-32 h-32 drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]">
+                                    <defs>
+                                        <linearGradient id="strapGrad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3a3a3c"/><stop offset="100%" stop-color="#1c1c1e"/></linearGradient>
+                                        <linearGradient id="glassGrad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4facfe" stop-opacity="0.4"/><stop offset="100%" stop-color="#00f2fe" stop-opacity="0.1"/></linearGradient>
+                                    </defs>
+                                    <path d="M20 55 Q60 45 100 55 L105 75 Q65 65 25 75 Z" fill="url(#strapGrad1)" />
+                                    <rect x="42" y="40" width="36" height="44" rx="10" fill="#000" stroke="#333" stroke-width="0.5" />
+                                    <rect x="44" y="42" width="32" height="40" rx="8" fill="url(#glassGrad1)" />
+                                    <circle cx="60" cy="62" r="4" fill="#4facfe" class="animate-pulse shadow-[0_0_15px_#4facfe]" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex-1 text-center md:text-left">
+                            <div class="text-xs font-black text-blue-600 uppercase tracking-widest mb-3 opacity-50">Stage 01</div>
+                            <h4 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 leading-tight uppercase tracking-tight">Wear</h4>
+                            <p class="text-lg md:text-xl font-medium leading-relaxed max-w-xl text-slate-500">User wears the AEGIS watch comfortably Designed for 24/7 clinical sensing</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Stage 2 -->
+                    <div class="flex flex-col md:flex-row gap-12 p-8 md:p-14 bg-white rounded-[64px] border border-slate-100 items-center group hover:border-blue-600 transition-all duration-700 shadow-sm hover:shadow-2xl fade-in-section" style="transition-delay: 150ms;">
+                        <div class="w-full md:w-56 h-56 bg-[#f5f5f7] rounded-[48px] overflow-hidden flex-shrink-0 transition-transform group-hover:scale-105 duration-700 shadow-inner flex items-center justify-center">
+                            <div class="w-full h-full flex items-center justify-center relative overflow-visible">
+                                <div class="absolute inset-0 bg-blue-600/5 blur-2xl rounded-full animate-pulse"></div>
+                                <svg viewBox="0 0 120 120" class="w-32 h-32">
+                                    <defs><radialGradient id="sensorGlow2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#0071e3" stop-opacity="0.6"/><stop offset="100%" stop-color="#0071e3" stop-opacity="0"/></radialGradient></defs>
+                                    <ellipse cx="60" cy="80" rx="45" ry="15" fill="#e5e7eb" opacity="0.1" />
+                                    <circle cx="60" cy="65" r="15" fill="none" stroke="#0071e3" stroke-width="0.5" class="animate-[ping_3s_linear_infinite]" />
+                                    <circle cx="60" cy="65" r="10" fill="url(#sensorGlow2)" />
+                                    <circle cx="60" cy="65" r="5" fill="#0071e3" class="shadow-2xl" />
+                                    <path d="M40 65 L50 65 L55 50 L65 80 L70 65 L80 65" stroke="white" stroke-width="1.5" fill="none" opacity="0.6" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex-1 text-center md:text-left">
+                            <div class="text-xs font-black text-blue-600 uppercase tracking-widest mb-3 opacity-50">Stage 02</div>
+                            <h4 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 leading-tight uppercase tracking-tight">Collect</h4>
+                            <p class="text-lg md:text-xl font-medium leading-relaxed max-w-xl text-slate-500">Sensors gather clinical vital signals with zero user intervention</p>
+                        </div>
+                    </div>
+
+                    <!-- Stage 3 -->
+                    <div class="flex flex-col md:flex-row gap-12 p-8 md:p-14 bg-white rounded-[64px] border border-slate-100 items-center group hover:border-blue-600 transition-all duration-700 shadow-sm hover:shadow-2xl fade-in-section" style="transition-delay: 300ms;">
+                        <div class="w-full md:w-56 h-56 bg-[#f5f5f7] rounded-[48px] overflow-hidden flex-shrink-0 transition-transform group-hover:scale-105 duration-700 shadow-inner flex items-center justify-center">
+                            <div class="w-full h-full flex items-center justify-center text-blue-500">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="animate-pulse"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                            </div>
+                        </div>
+                        <div class="flex-1 text-center md:text-left">
+                            <div class="text-xs font-black text-blue-600 uppercase tracking-widest mb-3 opacity-50">Stage 03</div>
+                            <h4 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 leading-tight uppercase tracking-tight">Analyze</h4>
+                            <p class="text-lg md:text-xl font-medium leading-relaxed max-w-xl text-slate-500">Guardian Protocol processes biometric streams locally in real-time</p>
+                        </div>
+                    </div>
+
+                    <!-- Stage 4 -->
+                    <div class="flex flex-col md:flex-row gap-12 p-8 md:p-14 bg-white rounded-[64px] border border-slate-100 items-center group hover:border-blue-600 transition-all duration-700 shadow-sm hover:shadow-2xl fade-in-section" style="transition-delay: 450ms;">
+                        <div class="w-full md:w-56 h-56 bg-[#f5f5f7] rounded-[48px] overflow-hidden flex-shrink-0 transition-transform group-hover:scale-105 duration-700 shadow-inner flex items-center justify-center">
+                             <div class="w-full h-full flex items-center justify-center text-slate-400">
+                                <div class="relative">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                                    <div class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full animate-ping"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-1 text-center md:text-left">
+                            <div class="text-xs font-black text-blue-600 uppercase tracking-widest mb-3 opacity-50">Stage 04</div>
+                            <h4 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 leading-tight uppercase tracking-tight">Detect</h4>
+                            <p class="text-lg md:text-xl font-medium leading-relaxed max-w-xl text-slate-500">Potential health risks are identified by proprietary AI models</p>
+                        </div>
+                    </div>
+
+                    <!-- Stage 5 -->
+                    <div class="flex flex-col md:flex-row gap-12 p-8 md:p-14 bg-white rounded-[64px] border border-slate-100 items-center group hover:border-blue-600 transition-all duration-700 shadow-sm hover:shadow-2xl fade-in-section" style="transition-delay: 600ms;">
+                        <div class="w-full md:w-56 h-56 bg-[#f5f5f7] rounded-[48px] overflow-hidden flex-shrink-0 transition-transform group-hover:scale-105 duration-700 shadow-inner flex items-center justify-center">
+                            <div class="w-full h-full flex items-center justify-center">
+                                <div class="p-5 bg-blue-600 rounded-full shadow-2xl text-white animate-bounce">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48 0a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-1 text-center md:text-left">
+                            <div class="text-xs font-black text-blue-600 uppercase tracking-widest mb-3 opacity-50">Stage 05</div>
+                            <h4 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 leading-tight uppercase tracking-tight">Act</h4>
+                            <p class="text-lg md:text-xl font-medium leading-relaxed max-w-xl text-slate-500">Emergency alerts are triggered autonomously within 0.1s of validation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison / Performance -->
+        <section id="comparison" class="py-32 bg-[#f5f5f7] px-6">
+            <div class="max-w-6xl mx-auto text-left">
+                <div class="text-center mb-24 fade-in-section">
+                    <h3 class="text-blue-600 font-bold uppercase tracking-widest text-[11px] mb-4 font-black text-center uppercase">Performance</h3>
+                    <h2 class="text-4xl md:text-8xl font-extrabold tracking-tighter text-black leading-none text-center uppercase">The AEGIS <br/><span class="text-blue-600 italic">Standard</span></h2>
+                </div>
+
+                <div class="max-w-5xl mx-auto bg-white border border-slate-200 rounded-[64px] overflow-hidden shadow-2xl p-16 md:p-24 fade-in-section">
+                    <div class="flex items-center gap-3 mb-16 text-blue-600 font-black text-3xl tracking-tighter uppercase">Specifications</div>
+                    <ul class="grid md:grid-cols-2 gap-x-16 gap-y-12">
+                        <!-- Items -->
+                        <li class="flex flex-col gap-2">
+                            <div class="flex items-center gap-4 text-xl font-bold text-slate-800">
+                                <div class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white shrink-0">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </div>
+                                Autonomous Activation
+                            </div>
+                            <p class="text-sm text-slate-500 font-medium ml-10">Software triggered SOS without user input</p>
+                        </li>
+                        <li class="flex flex-col gap-2">
+                            <div class="flex items-center gap-4 text-xl font-bold text-slate-800">
+                                <div class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white shrink-0">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </div>
+                                Logic Severity Analysis
+                            </div>
+                            <p class="text-sm text-slate-500 font-medium ml-10">Local processing of cardiac instability</p>
+                        </li>
+                        <li class="flex flex-col gap-2">
+                            <div class="flex items-center gap-4 text-xl font-bold text-slate-800">
+                                <div class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white shrink-0">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </div>
+                                Direct Hospital Sync
+                            </div>
+                            <p class="text-sm text-slate-500 font-medium ml-10">Encrypted relay to authorized dashboards</p>
+                        </li>
+                        <li class="flex flex-col gap-2">
+                            <div class="flex items-center gap-4 text-xl font-bold text-slate-800">
+                                <div class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white shrink-0">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </div>
+                                Medication Hub
+                            </div>
+                            <p class="text-sm text-slate-500 font-medium ml-10">Automated dose tracking and refill sync</p>
+                        </li>
+                        <li class="flex flex-col gap-2">
+                            <div class="flex items-center gap-4 text-xl font-bold text-slate-800">
+                                <div class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white shrink-0">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </div>
+                                Fall Detection
+                            </div>
+                            <p class="text-sm text-slate-500 font-medium ml-10">High-G impact logic with auto-verify</p>
+                        </li>
+                        <li class="flex flex-col gap-2">
+                            <div class="flex items-center gap-4 text-xl font-bold text-slate-800">
+                                <div class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white shrink-0">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </div>
+                                Oxygen Logic
+                            </div>
+                            <p class="text-sm text-slate-500 font-medium ml-10">Continuous SpO2 respiratory analysis</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plan -->
+        <section id="plan" class="py-32 bg-black text-white px-6 scroll-mt-16 overflow-hidden">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-32 fade-in-section">
+                    <h3 class="text-blue-500 font-bold uppercase tracking-widest text-[13px] mb-6 font-black">The Roadmap</h3>
+                    <h2 class="text-5xl md:text-[100px] font-black tracking-tighter text-white leading-none uppercase">Milestones</h2>
+                </div>
+
+                <div class="space-y-40 relative max-w-5xl mx-auto pb-20">
+                    <div class="absolute left-1/2 top-0 bottom-0 w-px bg-white/10 hidden md:block"></div>
+
+                    <!-- 2026 -->
+                    <div class="flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-0 fade-in-section">
+                        <div class="md:w-[45%] md:pr-12 text-center md:text-right">
+                            <div class="text-8xl md:text-[160px] font-black text-blue-500 mb-6 leading-none uppercase">2026</div>
+                            <h4 class="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-tight">Prototype I</h4>
+                            <p class="text-slate-400 text-xl md:text-2xl leading-relaxed font-medium">Establishment of the medical-grade hardware foundation Finalizing surgical-grade freeze and core sensing protocols for clinical accuracy</p>
+                        </div>
+                        <div class="hidden md:flex w-[10%] justify-center pt-24 relative z-10">
+                            <div class="w-5 h-5 rounded-full bg-blue-500 ring-[12px] ring-blue-500/20"></div>
+                        </div>
+                        <div class="md:w-[45%]"></div>
+                    </div>
+
+                    <!-- 2027 -->
+                    <div class="flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-0 fade-in-section">
+                        <div class="md:w-[45%]"></div>
+                        <div class="hidden md:flex w-[10%] justify-center pt-24 relative z-10">
+                            <div class="w-5 h-5 rounded-full bg-blue-400 ring-[12px] ring-blue-400/20"></div>
+                        </div>
+                        <div class="md:w-[45%] md:pl-12 text-center md:text-left">
+                            <div class="text-8xl md:text-[160px] font-black text-blue-400 mb-6 leading-none uppercase">2027</div>
+                            <h4 class="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-tight">Prototype II & III</h4>
+                            <p class="text-slate-400 text-xl md:text-2xl leading-relaxed font-medium">Integration of the Guardian Protocol for predictive analytics Deployment of global telemetry hospital sync and automated fulfillment</p>
+                        </div>
+                    </div>
+
+                    <!-- 2028 -->
+                    <div class="flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-0 fade-in-section">
+                        <div class="md:w-[45%] md:pr-12 text-center md:text-right">
+                            <div class="text-8xl md:text-[160px] font-black text-blue-300 mb-4 leading-none uppercase">2028</div>
+                            <h4 class="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-tight">Product Launch</h4>
+                            <p class="text-slate-400 text-xl md:text-2xl leading-relaxed font-medium">Official commercial launch of the AEGIS watch Expansion into global pharmacy and EMS partnerships AEGIS becomes the global standard</p>
+                        </div>
+                        <div class="hidden md:flex w-[10%] justify-center pt-24 relative z-10">
+                            <div class="w-5 h-5 rounded-full bg-blue-300 ring-[12px] ring-blue-300/20"></div>
+                        </div>
+                        <div class="md:w-[45%]"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team -->
+        <section id="team" class="py-32 bg-[#f5f5f7] px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-24 fade-in-section">
+                    <h3 class="text-blue-600 font-bold uppercase tracking-widest text-[11px] mb-4 font-black">Executive Team</h3>
+                    <h2 class="text-4xl md:text-7xl font-bold tracking-tight text-black leading-none uppercase">The Minds Behind</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                    <!-- Team Member 1 -->
+                    <div class="bg-white p-10 rounded-[56px] border border-slate-100 flex flex-col h-full group hover:shadow-2xl transition-all duration-700 fade-in-section" style="transition-delay: 0ms;">
+                        <div class="w-24 h-24 rounded-3xl bg-slate-100 overflow-hidden mb-8 group-hover:scale-105 transition-transform duration-500 border border-slate-100 relative">
+                            <img src="assets/SKOVA.png" alt="Marcus Skova" class="w-full h-full object-cover" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus Skova'" />
+                        </div>
+                        <h4 class="text-2xl font-bold mb-2 leading-tight text-slate-900 uppercase">Marcus Skova</h4>
+                        <p class="text-blue-600 text-[10px] font-black uppercase tracking-widest mb-6">Founder & CEO</p>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-8 font-medium">Visionary behind the SKOVA safety architecture and core neural protocols</p>
+                        <div class="mt-auto flex gap-4 pt-4 border-t border-slate-50 opacity-20 group-hover:opacity-100 transition-opacity">
+                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                    </div>
+                    <!-- Team Member 2 -->
+                    <div class="bg-white p-10 rounded-[56px] border border-slate-100 flex flex-col h-full group hover:shadow-2xl transition-all duration-700 fade-in-section" style="transition-delay: 100ms;">
+                        <div class="w-24 h-24 rounded-3xl bg-slate-100 overflow-hidden mb-8 group-hover:scale-105 transition-transform duration-500 border border-slate-100 relative">
+                            <img src="assets/team2.jpg" alt="Dr Elena Vance" class="w-full h-full object-cover" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=Dr Elena Vance'" />
+                        </div>
+                        <h4 class="text-2xl font-bold mb-2 leading-tight text-slate-900 uppercase">Dr Elena Vance</h4>
+                        <p class="text-blue-600 text-[10px] font-black uppercase tracking-widest mb-6">Chief Medical Officer</p>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-8 font-medium">Leading clinical research and cardiovascular sensing algorithm validation</p>
+                        <div class="mt-auto flex gap-4 pt-4 border-t border-slate-50 opacity-20 group-hover:opacity-100 transition-opacity">
+                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                    </div>
+                    <!-- Team Member 3 -->
+                    <div class="bg-white p-10 rounded-[56px] border border-slate-100 flex flex-col h-full group hover:shadow-2xl transition-all duration-700 fade-in-section" style="transition-delay: 200ms;">
+                        <div class="w-24 h-24 rounded-3xl bg-slate-100 overflow-hidden mb-8 group-hover:scale-105 transition-transform duration-500 border border-slate-100 relative">
+                            <img src="assets/team3.jpg" alt="Sarah Chen" class="w-full h-full object-cover" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah Chen'" />
+                        </div>
+                        <h4 class="text-2xl font-bold mb-2 leading-tight text-slate-900 uppercase">Sarah Chen</h4>
+                        <p class="text-blue-600 text-[10px] font-black uppercase tracking-widest mb-6">Head of AI</p>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-8 font-medium">Specializing in neural patterns and severity classification models</p>
+                        <div class="mt-auto flex gap-4 pt-4 border-t border-slate-50 opacity-20 group-hover:opacity-100 transition-opacity">
+                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                    </div>
+                    <!-- Team Member 4 -->
+                    <div class="bg-white p-10 rounded-[56px] border border-slate-100 flex flex-col h-full group hover:shadow-2xl transition-all duration-700 fade-in-section" style="transition-delay: 300ms;">
+                        <div class="w-24 h-24 rounded-3xl bg-slate-100 overflow-hidden mb-8 group-hover:scale-105 transition-transform duration-500 border border-slate-100 relative">
+                            <img src="assets/team4.jpg" alt="David Miller" class="w-full h-full object-cover" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=David Miller'" />
+                        </div>
+                        <h4 class="text-2xl font-bold mb-2 leading-tight text-slate-900 uppercase">David Miller</h4>
+                        <p class="text-blue-600 text-[10px] font-black uppercase tracking-widest mb-6">Chief Engineer</p>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-8 font-medium">Architect of the integrated Guardian engine and encrypted infrastructure</p>
+                        <div class="mt-auto flex gap-4 pt-4 border-t border-slate-50 opacity-20 group-hover:opacity-100 transition-opacity">
+                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                    </div>
+                    <!-- Team Member 5 -->
+                    <div class="bg-white p-10 rounded-[56px] border border-slate-100 flex flex-col h-full group hover:shadow-2xl transition-all duration-700 fade-in-section" style="transition-delay: 400ms;">
+                        <div class="w-24 h-24 rounded-3xl bg-slate-100 overflow-hidden mb-8 group-hover:scale-105 transition-transform duration-500 border border-slate-100 relative">
+                            <img src="assets/team5.jpg" alt="Julian Thorne" class="w-full h-full object-cover" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=Julian Thorne'" />
+                        </div>
+                        <h4 class="text-2xl font-bold mb-2 leading-tight text-slate-900 uppercase">Julian Thorne</h4>
+                        <p class="text-blue-600 text-[10px] font-black uppercase tracking-widest mb-6">Safety Compliance</p>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-8 font-medium">Ensuring global HIPAA medical certification and framework integrity</p>
+                        <div class="mt-auto flex gap-4 pt-4 border-t border-slate-50 opacity-20 group-hover:opacity-100 transition-opacity">
+                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Redesign -->
+    <footer class="bg-[#e5e5e5] py-24 px-8 md:px-16 border-t border-gray-200">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="flex flex-col lg:flex-row justify-between gap-16 lg:gap-32">
+                
+                <!-- Branding Column -->
+                <div class="lg:w-1/4 space-y-8 fade-in-section">
+                   <h2 class="text-[42px] font-black tracking-tighter text-slate-900 leading-none uppercase">AEGIS</h2>
+                   <p class="text-[14px] text-slate-500 font-medium leading-relaxed max-w-xs">
+                     Intelligence That Protects A Skova Global Health initiative focused on the autonomous prevention of medical delay
+                   </p>
+                </div>
+
+                <!-- Navigation Column -->
+                <div class="lg:w-1/4 fade-in-section" style="transition-delay: 100ms;">
+                   <h6 class="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 mb-10">Navigation</h6>
+                   <ul class="flex flex-col gap-6 text-[18px] font-black text-slate-900 uppercase tracking-tight">
+                      <li><a href="#about" class="hover:text-blue-600 transition-colors">Vision</a></li>
+                      <li><a href="#solution" class="hover:text-blue-600 transition-colors">Solution</a></li>
+                      <li><a href="#plan" class="hover:text-blue-600 transition-colors">Roadmap</a></li>
+                   </ul>
+                </div>
+
+                <!-- Brand Signature Area -->
+                <div class="lg:w-2/4 flex items-start fade-in-section" style="transition-delay: 200ms;">
+                   <div class="pt-2 flex flex-col sm:flex-row sm:items-center gap-8 lg:gap-12">
+                      <div class="text-[48px] font-black tracking-tighter text-slate-900 uppercase">SKOVA</div>
+                      <div class="hidden sm:block h-12 w-px bg-slate-400"></div>
+                      <div class="flex flex-col">
+                        <span class="text-[11px] font-black tracking-[0.4em] uppercase text-slate-500">Intelligence Systems & Health</span>
+                      </div>
+                   </div>
+                </div>
+            </div>
+
+            <!-- Copyright and Legal -->
+            <div class="mt-32 pt-12 border-t border-slate-300/30 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 fade-in-section">
+                <span>&copy; 2026 AEGIS INTELLIGENCE ALL RIGHTS RESERVED</span>
+                <div class="flex gap-12">
+                   <span class="hover:text-slate-900 cursor-pointer transition-colors uppercase">Compliance</span>
+                   <span class="hover:text-slate-900 cursor-pointer transition-colors uppercase">Security</span>
+                   <span class="hover:text-slate-900 cursor-pointer transition-colors uppercase">Protocol</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Intersection Observer Script for Animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-section').forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
