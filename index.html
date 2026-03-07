@@ -19,6 +19,11 @@
             font-family: 'Inter', sans-serif;
         }
         
+        body.locked {
+            overflow: hidden;
+            height: 100vh;
+        }
+
         /* Custom Animations */
         @keyframes ecg { 
             from { stroke-dashoffset: 1000; } 
@@ -47,7 +52,31 @@
         ::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 10px; }
     </style>
 </head>
-<body class="bg-white text-slate-900 selection:bg-blue-100 overflow-x-hidden antialiased text-left">
+<body class="bg-white text-slate-900 selection:bg-blue-100 overflow-x-hidden antialiased text-left locked">
+
+    <!-- 🚀 LAUNCH SCREEN OVERLAY 🚀 -->
+    <div id="launch-screen" class="fixed inset-0 z-[99999] bg-slate-950 flex flex-col items-center justify-center transition-all duration-1000 ease-[cubic-bezier(0.87,0,0.13,1)]">
+        <div class="text-center relative z-10">
+            <!-- Glowing background effect -->
+            <div class="absolute inset-0 bg-blue-600/20 blur-[100px] rounded-full animate-pulse -z-10"></div>
+            
+            <svg viewBox="0 0 100 100" class="w-20 h-20 text-white mx-auto mb-8 animate-pulse">
+                <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="4" />
+                <path d="M50 18 L28 78 L42 78 L50 56 L58 78 L72 78 Z" fill="currentColor" />
+                <path d="M35 75 L55 35" stroke="white" stroke-width="5" stroke-linecap="round" />
+            </svg>
+            
+            <h1 class="text-[10px] font-black tracking-[0.5em] text-blue-500 uppercase mb-12">System Standby</h1>
+            
+            <button id="launch-button" class="group relative px-10 py-5 bg-white text-black font-black uppercase tracking-widest text-xs rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 flex items-center gap-4 mx-auto shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)]">
+                <span>Launch Platform</span>
+                <svg class="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2l.5-.5a5.4 5.4 0 0 0 1-4.6l-1.4-1.4a5.4 5.4 0 0 0-5.1-1.5"/>
+                    <path d="m15.4 6.51-.5-.5a5.4 5.4 0 0 0-5.1-1.5l-1.4-1.4a5.4 5.4 0 0 0-4.6 1c0 0-4.5 1.5-3.5 3.5s2.5 3 2.5 3l.5.5a5.4 5.4 0 0 0 4.6 1l1.4 1.4a5.4 5.4 0 0 0 1.5 5.1l.5.5c0 0 1.5-4.5 3.5-3.5s3 2.5 3 2.5l.5.5a5.4 5.4 0 0 0 5.1-1.5l-1.4 1.4a5.4 5.4 0 0 0-1-4.6z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-[100] bg-white/80 backdrop-blur-xl border-b border-gray-100 h-16">
@@ -64,7 +93,6 @@
                 <a href="#features" class="text-[17px]  text-slate-500 hover:text-black transition-all uppercase tracking-widest">Features</a>
                 <a href="#comparison" class="text-[17px]  text-slate-500 hover:text-black transition-all uppercase tracking-widest">Comparison</a>
                 <a href="#plan" class="text-[17px]  text-slate-500 hover:text-black transition-all uppercase tracking-widest">Plan</a>
-                <a href="#team" class="text-[17px]  text-slate-500 hover:text-black transition-all uppercase tracking-widest">Team</a>
             </div>
             
             <button class="bg-blue-600 text-white px-6 py-2 rounded-full text-[11px] font-bold hover:bg-blue-700 active:scale-95 transition-all shadow-xl shadow-blue-500/20 uppercase tracking-widest">
@@ -442,20 +470,20 @@
         </section>
 
         <!-- Plan -->
-        <section id="plan" class="py-32 bg-black text-white px-6 scroll-mt-16 overflow-hidden">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-32 fade-in-section">
-                    <h3 class="text-blue-500 font-bold uppercase tracking-widest text-[13px] mb-6 font-black">The Roadmap</h3>
-                    <h2 class="text-5xl md:text-[100px] font-black tracking-tighter text-white leading-none uppercase">Milestones</h2>
+        <section id="plan" class="py-32 bg-black text-white px-6 scroll-mt-16 overflow-hidden text-left text-left">
+            <div class="max-w-6xl mx-auto text-left text-left text-left">
+                <div class="text-center mb-32 fade-in-section text-left text-left text-left">
+                    <h3 class="text-blue-500 font-bold uppercase tracking-widest text-[13px] mb-6 text-center uppercase font-black text-left">The Roadmap</h3>
+                    <h2 class="text-5xl md:text-[100px] font-black tracking-tighter text-white leading-none text-center uppercase text-left">Milestones</h2>
                 </div>
 
-                <div class="space-y-40 relative max-w-5xl mx-auto pb-20">
-                    <div class="absolute left-1/2 top-0 bottom-0 w-px bg-white/10 hidden md:block"></div>
+                <div class="space-y-40 relative max-w-5xl mx-auto pb-20 text-left text-left">
+                    <div class="absolute left-1/2 top-0 bottom-0 w-px bg-white/10 hidden md:block text-left text-left"></div>
 
                     <!-- 2026 -->
                     <div class="flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-0 fade-in-section">
                         <div class="md:w-[45%] md:pr-12 text-center md:text-right">
-                            <div class="text-8xl md:text-[160px] font-black text-blue-500 mb-6 leading-none uppercase">2026</div>
+                            <div class="text-8xl lg:text-[130px] xl:text-[160px] font-black text-blue-500 mb-6 leading-none uppercase">2026</div>
                             <h4 class="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-tight">Prototype I</h4>
                             <p class="text-slate-400 text-xl md:text-2xl leading-relaxed font-medium">Establishment of the medical-grade hardware foundation Finalizing surgical-grade freeze and core sensing protocols for clinical accuracy</p>
                         </div>
@@ -472,7 +500,7 @@
                             <div class="w-5 h-5 rounded-full bg-blue-400 ring-[12px] ring-blue-400/20"></div>
                         </div>
                         <div class="md:w-[45%] md:pl-12 text-center md:text-left">
-                            <div class="text-8xl md:text-[160px] font-black text-blue-400 mb-6 leading-none uppercase">2027</div>
+                            <div class="text-8xl lg:text-[130px] xl:text-[160px] font-black text-blue-400 mb-6 leading-none uppercase">2027</div>
                             <h4 class="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-tight">Prototype II & III</h4>
                             <p class="text-slate-400 text-xl md:text-2xl leading-relaxed font-medium">Integration of the Guardian Protocol for predictive analytics Deployment of global telemetry hospital sync and automated fulfillment</p>
                         </div>
@@ -481,7 +509,7 @@
                     <!-- 2028 -->
                     <div class="flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-0 fade-in-section">
                         <div class="md:w-[45%] md:pr-12 text-center md:text-right">
-                            <div class="text-8xl md:text-[160px] font-black text-blue-300 mb-4 leading-none uppercase">2028</div>
+                            <div class="text-8xl lg:text-[130px] xl:text-[160px] font-black text-blue-300 mb-4 leading-none uppercase">2028</div>
                             <h4 class="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-tight">Product Launch</h4>
                             <p class="text-slate-400 text-xl md:text-2xl leading-relaxed font-medium">Official commercial launch of the AEGIS watch Expansion into global pharmacy and EMS partnerships AEGIS becomes the global standard</p>
                         </div>
@@ -494,82 +522,6 @@
             </div>
         </section>
 
-        <!-- Team -->
-        <section id="team" class="py-32 bg-[#f5f5f7] px-6">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-24 fade-in-section">
-                    <h3 class="text-blue-600 font-bold uppercase tracking-widest text-[11px] mb-4 font-black">Executive Team</h3>
-                    <h2 class="text-4xl md:text-7xl font-bold tracking-tight text-black leading-none uppercase">The Minds Behind</h2>
-                </div>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-                    <!-- Team Member 1 -->
-                    <div class="bg-white p-10 rounded-[56px] border border-slate-100 flex flex-col h-full group hover:shadow-2xl transition-all duration-700 fade-in-section" style="transition-delay: 0ms;">
-                        <div class="w-24 h-24 rounded-3xl bg-slate-100 overflow-hidden mb-8 group-hover:scale-105 transition-transform duration-500 border border-slate-100 relative">
-                            <img src="assets/team1.png" alt="Marcus Skova" class="w-full h-full object-cover" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus Skova'" />
-                        </div>
-                        <h4 class="text-2xl font-bold mb-2 leading-tight text-slate-900 uppercase">Marcus Skova</h4>
-                        <p class="text-blue-600 text-[10px] font-black uppercase tracking-widest mb-6">Founder & CEO</p>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-8 font-medium">Visionary behind the SKOVA safety architecture and core neural protocols</p>
-                        <div class="mt-auto flex gap-4 pt-4 border-t border-slate-50 opacity-20 group-hover:opacity-100 transition-opacity">
-                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        </div>
-                    </div>
-                    <!-- Team Member 2 -->
-                    <div class="bg-white p-10 rounded-[56px] border border-slate-100 flex flex-col h-full group hover:shadow-2xl transition-all duration-700 fade-in-section" style="transition-delay: 100ms;">
-                        <div class="w-24 h-24 rounded-3xl bg-slate-100 overflow-hidden mb-8 group-hover:scale-105 transition-transform duration-500 border border-slate-100 relative">
-                            <img src="assets/team2.jpg" alt="Dr Elena Vance" class="w-full h-full object-cover" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=Dr Elena Vance'" />
-                        </div>
-                        <h4 class="text-2xl font-bold mb-2 leading-tight text-slate-900 uppercase">Dr Elena Vance</h4>
-                        <p class="text-blue-600 text-[10px] font-black uppercase tracking-widest mb-6">Chief Medical Officer</p>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-8 font-medium">Leading clinical research and cardiovascular sensing algorithm validation</p>
-                        <div class="mt-auto flex gap-4 pt-4 border-t border-slate-50 opacity-20 group-hover:opacity-100 transition-opacity">
-                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        </div>
-                    </div>
-                    <!-- Team Member 3 -->
-                    <div class="bg-white p-10 rounded-[56px] border border-slate-100 flex flex-col h-full group hover:shadow-2xl transition-all duration-700 fade-in-section" style="transition-delay: 200ms;">
-                        <div class="w-24 h-24 rounded-3xl bg-slate-100 overflow-hidden mb-8 group-hover:scale-105 transition-transform duration-500 border border-slate-100 relative">
-                            <img src="assets/team3.jpg" alt="Sarah Chen" class="w-full h-full object-cover" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah Chen'" />
-                        </div>
-                        <h4 class="text-2xl font-bold mb-2 leading-tight text-slate-900 uppercase">Sarah Chen</h4>
-                        <p class="text-blue-600 text-[10px] font-black uppercase tracking-widest mb-6">Head of AI</p>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-8 font-medium">Specializing in neural patterns and severity classification models</p>
-                        <div class="mt-auto flex gap-4 pt-4 border-t border-slate-50 opacity-20 group-hover:opacity-100 transition-opacity">
-                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        </div>
-                    </div>
-                    <!-- Team Member 4 -->
-                    <div class="bg-white p-10 rounded-[56px] border border-slate-100 flex flex-col h-full group hover:shadow-2xl transition-all duration-700 fade-in-section" style="transition-delay: 300ms;">
-                        <div class="w-24 h-24 rounded-3xl bg-slate-100 overflow-hidden mb-8 group-hover:scale-105 transition-transform duration-500 border border-slate-100 relative">
-                            <img src="assets/team4.jpg" alt="David Miller" class="w-full h-full object-cover" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=David Miller'" />
-                        </div>
-                        <h4 class="text-2xl font-bold mb-2 leading-tight text-slate-900 uppercase">David Miller</h4>
-                        <p class="text-blue-600 text-[10px] font-black uppercase tracking-widest mb-6">Chief Engineer</p>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-8 font-medium">Architect of the integrated Guardian engine and encrypted infrastructure</p>
-                        <div class="mt-auto flex gap-4 pt-4 border-t border-slate-50 opacity-20 group-hover:opacity-100 transition-opacity">
-                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        </div>
-                    </div>
-                    <!-- Team Member 5 -->
-                    <div class="bg-white p-10 rounded-[56px] border border-slate-100 flex flex-col h-full group hover:shadow-2xl transition-all duration-700 fade-in-section" style="transition-delay: 400ms;">
-                        <div class="w-24 h-24 rounded-3xl bg-slate-100 overflow-hidden mb-8 group-hover:scale-105 transition-transform duration-500 border border-slate-100 relative">
-                            <img src="assets/team5.jpg" alt="Julian Thorne" class="w-full h-full object-cover" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=Julian Thorne'" />
-                        </div>
-                        <h4 class="text-2xl font-bold mb-2 leading-tight text-slate-900 uppercase">Julian Thorne</h4>
-                        <p class="text-blue-600 text-[10px] font-black uppercase tracking-widest mb-6">Safety Compliance</p>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-8 font-medium">Ensuring global HIPAA medical certification and framework integrity</p>
-                        <div class="mt-auto flex gap-4 pt-4 border-t border-slate-50 opacity-20 group-hover:opacity-100 transition-opacity">
-                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                            <svg class="cursor-pointer hover:text-blue-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- Footer Redesign -->
@@ -619,9 +571,26 @@
         </div>
     </footer>
 
-    <!-- Intersection Observer Script for Animations -->
+    <!-- Intersection Observer & Launch Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Launch Screen Logic
+            const launchScreen = document.getElementById('launch-screen');
+            const launchBtn = document.getElementById('launch-button');
+            
+            launchBtn.addEventListener('click', () => {
+                // Zoom and fade out effect
+                launchScreen.style.transform = 'scale(1.5)';
+                launchScreen.style.opacity = '0';
+                launchScreen.style.pointerEvents = 'none';
+                
+                setTimeout(() => {
+                    document.body.classList.remove('locked');
+                    launchScreen.remove();
+                }, 1000); // Matches the 1000ms transition duration
+            });
+
+            // Scroll Animations Logic
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
